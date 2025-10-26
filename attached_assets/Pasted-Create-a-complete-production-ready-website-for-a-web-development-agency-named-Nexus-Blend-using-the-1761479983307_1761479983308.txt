@@ -1,0 +1,107 @@
+Create a complete, production-ready website for a web development agency named Nexus Blend using the MERN stack (Next.js + Node.js + Express + MongoDB).
+Project Overview:
+ Nexus Blend is a premium web development agency that blends design and code to deliver exceptional digital experiences.
+ Tagline: “Blending Design and Code into Digital Perfection.”
+ The website should have a dark, elegant, and futuristic theme with smooth 3D animations and scrolling.
+Tech Stack:
+ Frontend: Next.js
+ Animation: Three.js for 3D visuals and motion backgrounds
+ Smooth Scrolling and Animations: GSAP and Framer Motion
+ Styling: Tailwind CSS
+ Backend: Node.js + Express
+ Database: MongoDB (Mongoose)
+ Email: NodeMailer for contact form
+ Authentication: JWT for admin login
+ Deployment: Frontend to Netlify, backend to Heroku
+Pages to Include:
+Home Page – Hero section with Three.js 3D background animation, tagline, CTA button, service previews, featured projects, testimonials preview, smooth scrolling, and footer with social links.
+
+
+About Page – Agency introduction, mission statement, 3D parallax animation, and timeline of growth.
+
+
+Services Page – Dynamic list of services fetched from MongoDB with icons, titles, and descriptions.
+
+
+Portfolio Page – Dynamic project gallery with filter options, clickable project cards that open detailed modals with 3D transitions.
+
+
+Team Page – Dynamic list of team members from MongoDB with hover animations and social links.
+
+
+Testimonials Page – Dynamic testimonials displayed in a slider with smooth animations.
+
+
+Contact Page – Contact form with Name, Email, Subject, and Message fields. Submissions send an email via NodeMailer and save to MongoDB. Add a 3D animated background for visual appeal.
+
+
+Admin Dashboard – Secure login with JWT authentication. Admin can add, edit, delete, and manage:
+
+
+Projects
+
+
+Services
+
+
+Team Members
+
+
+Testimonials
+ The dashboard should show analytics (like total projects, services, etc.) and have a simple dark theme layout.
+
+
+Core Features:
+Fully responsive design for mobile, tablet, and desktop.
+
+
+Three.js 3D animations and backgrounds.
+
+
+GSAP + Framer Motion for smooth scrolling and page transitions.
+
+
+All data dynamic from MongoDB.
+
+
+SEO-friendly meta titles and descriptions.
+
+
+Proper form validation and error handling.
+
+
+Clean, modular, and reusable code components.
+
+
+Include dummy data for all sections.
+
+
+Design Style:
+ Dark background with electric blue or violet accents.
+ Fonts: Poppins or Inter.
+ Logo: simple text-based logo that says “Nexus Blend”.
+ Visual style should be futuristic, elegant, and premium with smooth 3D and scroll effects.
+Deployment:
+ Include .env.example for environment variables (MongoDB URI, JWT secret, SMTP details).
+ Prepare build scripts for frontend and backend.
+ Write a README with setup, environment, and deployment instructions.
+Deliverables:
+ A fully functional, modern, 3D-animated Nexus Blend website with:
+Smooth scrolling transitions
+
+
+Admin panel with CRUD operations
+
+
+MongoDB integration
+
+
+Responsive dark theme
+
+
+Dummy content for all sections
+
+
+Clean and deployable code
+
+
