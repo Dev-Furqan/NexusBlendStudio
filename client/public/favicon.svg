@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A855F7;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle with gradient -->
+  <circle cx="50" cy="50" r="45" fill="url(#purple-gradient)" stroke="rgba(139, 92, 246, 0.3)" stroke-width="2" />
+  
+  <!-- Letter N with modern styling -->
+  <path d="M 30 25 L 30 75 L 40 55 L 40 75 L 60 75 L 60 25 L 50 45 L 50 25 Z" 
+        fill="#FFFFFF" 
+        opacity="0.95"
+        filter="url(#glow)"
+        stroke="#8B5CF6"
+        stroke-width="0.5" />
+  
+  <!-- Subtle accent line -->
+  <line x1="70" y1="30" x2="70" y2="70" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-linecap="round" />
+</svg>

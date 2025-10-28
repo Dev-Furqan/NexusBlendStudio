@@ -1,47 +1,65 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'wouter';
-import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ThreeBackground } from '@/components/ThreeBackground';
 import { PageTransition } from '@/components/PageTransition';
-import { ArrowRight, Code, Palette, Smartphone, TrendingUp, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ArrowRight, Code, Palette, Smartphone, TrendingUp, Star, Check } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ecommerceImg from '@assets/generated_images/E-commerce_platform_website_mockup_2ca066b6.png';
-import fintechImg from '@assets/generated_images/Fintech_mobile_banking_app_a8b24e45.png';
-import realEstateImg from '@assets/generated_images/Real_estate_platform_mockup_d24d2764.png';
-import testimon1 from '@assets/generated_images/Client_testimonial_portrait_1_27fc4be2.png';
+
+// Import images
+import ecommerceImg from '@assets/generated_images/portfolio/E-commerce_platform_website_mockup_2ca066b6.png';
+import fintechImg from '@assets/generated_images/portfolio/Fintech_mobile_banking_app_a8b24e45.png';
+import realEstateImg from '@assets/generated_images/portfolio/Real_estate_platform_mockup_d24d2764.png';
+import testimonialImg from '@assets/generated_images/testimonial/Client_testimonial_portrait_1_27fc4be2.png';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const serviceIcons = {
-  Code: Code,
-  Palette: Palette,
-  Smartphone: Smartphone,
-  TrendingUp: TrendingUp,
+const services = [
+  { id: 1, title: 'Web Development', icon: Code, description: 'Custom websites and web applications built with cutting-edge technologies' },
+  { id: 2, title: 'Web Design', icon: Palette, description: 'Beautiful, responsive designs that captivate your audience' },
+  { id: 3, title: 'Mobile Apps', icon: Smartphone, description: 'Native and cross-platform mobile applications' },
+  { id: 4, title: 'Digital Marketing', icon: TrendingUp, description: 'Strategic campaigns to grow your online presence' },
+];
+
+const featuredProjects = [
+  {
+    id: 1,
+    title: 'ShopHub E-commerce Platform',
+    description: 'Modern e-commerce platform with seamless shopping experience and secure payments.',
+    image: ecommerceImg,
+    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    category: 'E-commerce',
+  },
+  {
+    id: 2,
+    title: 'FinanceFlow Banking App',
+    description: 'Secure mobile banking application with real-time transactions and budget tracking.',
+    image: fintechImg,
+    technologies: ['React Native', 'Express', 'PostgreSQL'],
+    category: 'Fintech',
+  },
+  {
+    id: 3,
+    title: 'PropertyHub Real Estate',
+    description: 'Comprehensive real estate platform with advanced property search and virtual tours.',
+    image: realEstateImg,
+    technologies: ['Next.js', 'GraphQL', 'PostgreSQL'],
+    category: 'Real Estate',
+  },
+];
+
+const testimonial = {
+  clientName: 'Jennifer Williams',
+  clientRole: 'CEO',
+  clientCompany: 'TechStart Inc',
+  content: 'Nexus Blend transformed our online presence completely. Their attention to detail and innovative approach exceeded all our expectations. The team was professional, responsive, and delivered exactly what we envisioned.',
 };
 
 export default function Home() {
-  const sectionRef = useRef(null);
-  
-  const { data: services } = useQuery({ 
-    queryKey: ['/api/services'],
-  });
-  
-  const { data: projects } = useQuery({ 
-    queryKey: ['/api/projects'],
-  });
-  
-  const { data: testimonials } = useQuery({ 
-    queryKey: ['/api/testimonials'],
-  });
-
-  const featuredProjects = projects?.filter(p => p.featured).slice(0, 3) || [];
-  const displayTestimonial = testimonials?.[0];
-
   useEffect(() => {
     const sections = gsap.utils.toArray('.animate-on-scroll');
     
@@ -66,7 +84,7 @@ export default function Home() {
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [services, projects, testimonials]);
+  }, []);
 
   return (
     <PageTransition>
@@ -76,7 +94,7 @@ export default function Home() {
         <ThreeBackground variant="particles" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6" data-testid="text-hero-title">
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6">
             <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
               Blending Design and Code
             </span>
@@ -90,12 +108,12 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/portfolio">
-              <Button size="lg" className="px-8 py-6 rounded-full font-semibold text-lg" data-testid="button-hero-portfolio">
+              <Button size="lg" className="px-8 py-6 rounded-full font-semibold text-lg hover:shadow-xl hover:shadow-primary/20 transition-all">
                 View Our Work <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="px-8 py-6 rounded-full font-semibold text-lg backdrop-blur-sm bg-background/20" data-testid="button-hero-contact">
+              <Button size="lg" variant="outline" className="px-8 py-6 rounded-full font-semibold text-lg backdrop-blur-sm bg-background/20 hover:bg-background/30 transition-all">
                 Get in Touch
               </Button>
             </Link>
@@ -113,7 +131,7 @@ export default function Home() {
       <section className="py-20 md:py-32 animate-on-scroll">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold mb-4" data-testid="text-services-title">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4">
               Our Services
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -122,11 +140,11 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services?.slice(0, 4).map((service) => {
-              const IconComponent = serviceIcons[service.icon] || Code;
+            {services.map((service) => {
+              const IconComponent = service.icon;
               return (
-                <Card key={service.id} className="p-8 hover-elevate transition-all duration-300 hover:-translate-y-2" data-testid={`card-service-${service.id}`}>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <Card key={service.id} className="p-8 hover-elevate transition-all duration-300 hover:-translate-y-2 border-border/50 hover:border-primary/50 group">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <IconComponent className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="text-xl font-medium mb-2">{service.title}</h3>
@@ -138,7 +156,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link href="/services">
-              <Button variant="outline" className="rounded-full font-semibold" data-testid="button-view-all-services">
+              <Button variant="outline" className="rounded-full font-semibold">
                 View All Services <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -146,11 +164,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* Why Choose Us Section */}
       <section className="py-20 md:py-32 bg-card/50 animate-on-scroll">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold mb-4" data-testid="text-projects-title">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4">
+              Why Choose Nexus Blend?
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Experience the difference of working with experts
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Expert Team',
+                description: 'Work with experienced professionals dedicated to your success',
+                icon: '✓',
+              },
+              {
+                title: 'Fast Delivery',
+                description: 'Quick turnaround without compromising quality',
+                icon: '✓',
+              },
+              {
+                title: '24/7 Support',
+                description: 'Round-the-clock assistance whenever you need it',
+                icon: '✓',
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="text-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <Check className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects */}
+      <section className="py-20 md:py-32 animate-on-scroll">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4">
               Featured Projects
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -160,15 +220,18 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProjects.map((project) => (
-              <Card key={project.id} className="overflow-hidden hover-elevate transition-all duration-300 hover:-translate-y-2" data-testid={`card-project-${project.id}`}>
+              <Card key={project.id} className="overflow-hidden hover-elevate transition-all duration-300 hover:-translate-y-2 border-border/50 hover:border-primary/50 group">
                 <div className="aspect-video overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6">
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium mb-2 inline-block">
+                    {project.category}
+                  </span>
                   <h3 className="text-xl font-medium mb-2">{project.title}</h3>
                   <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
@@ -185,7 +248,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link href="/portfolio">
-              <Button className="rounded-full font-semibold px-8" data-testid="button-view-portfolio">
+              <Button className="rounded-full font-semibold px-8 hover:shadow-xl hover:shadow-primary/20 transition-all">
                 View Full Portfolio <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -194,7 +257,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 md:py-32 animate-on-scroll">
+      <section className="py-20 md:py-32 bg-card/50 animate-on-scroll">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -203,7 +266,7 @@ export default function Home() {
               { number: '8+', label: 'Years Experience' },
               { number: '25+', label: 'Team Members' },
             ].map((stat, idx) => (
-              <div key={idx} className="text-center" data-testid={`stat-${idx}`}>
+              <div key={idx} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
@@ -215,43 +278,41 @@ export default function Home() {
       </section>
 
       {/* Testimonial Preview */}
-      {displayTestimonial && (
-        <section className="py-20 md:py-32 bg-card/50 animate-on-scroll">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <div className="flex justify-center mb-6">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-6 w-6 fill-primary text-primary" />
-              ))}
-            </div>
-            
-            <blockquote className="text-2xl md:text-3xl font-medium mb-8 leading-relaxed">
-              "{displayTestimonial.content}"
-            </blockquote>
-            
-            <div className="flex items-center justify-center gap-4">
-              <img 
-                src={displayTestimonial.image} 
-                alt={displayTestimonial.clientName}
-                className="w-16 h-16 rounded-full object-cover"
-              />
-              <div className="text-left">
-                <div className="font-semibold">{displayTestimonial.clientName}</div>
-                <div className="text-muted-foreground text-sm">
-                  {displayTestimonial.clientRole} at {displayTestimonial.clientCompany}
-                </div>
+      <section className="py-20 md:py-32 animate-on-scroll">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="flex justify-center mb-6">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="h-6 w-6 fill-primary text-primary" />
+            ))}
+          </div>
+          
+          <blockquote className="text-2xl md:text-3xl font-medium mb-8 leading-relaxed">
+            "{testimonial.content}"
+          </blockquote>
+          
+          <div className="flex items-center justify-center gap-4">
+            <img 
+              src={testimonialImg} 
+              alt={testimonial.clientName}
+              className="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20"
+            />
+            <div className="text-left">
+              <div className="font-semibold">{testimonial.clientName}</div>
+              <div className="text-muted-foreground text-sm">
+                {testimonial.clientRole} at {testimonial.clientCompany}
               </div>
             </div>
-
-            <div className="mt-12">
-              <Link href="/testimonials">
-                <Button variant="outline" className="rounded-full font-semibold" data-testid="button-view-testimonials">
-                  View All Testimonials <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
           </div>
-        </section>
-      )}
+
+          <div className="mt-12">
+            <Link href="/testimonials">
+              <Button variant="outline" className="rounded-full font-semibold">
+                View All Testimonials <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="relative py-32 overflow-hidden">
@@ -265,7 +326,7 @@ export default function Home() {
             Let's create something amazing together
           </p>
           <Link href="/contact">
-            <Button size="lg" className="px-8 py-6 rounded-full font-semibold text-lg" data-testid="button-cta-contact">
+            <Button size="lg" className="px-8 py-6 rounded-full font-semibold text-lg hover:shadow-xl hover:shadow-primary/20 transition-all">
               Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

@@ -69,12 +69,12 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="text-muted-foreground">
-                <a href="mailto:hello@nexusblend.com" className="hover:text-primary transition-colors">
-                  hello@nexusblend.com
+                <a href="mailto:nexusblendd@gmail.com" className="hover:text-primary transition-colors">
+                 nexusblendd@gmail.com
                 </a>
               </li>
               <li className="text-muted-foreground">
-                +1 (555) 123-4567
+                +92 332 3658045
               </li>
               <li className="text-muted-foreground">
                 San Francisco, CA
