@@ -17,6 +17,7 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
 import { Lock } from 'lucide-react';
+import { PageTransition } from '@/components/PageTransition';
 
 const loginSchema = z.object({
   username: z.string().min(3, 'Username must be at least 3 characters'),

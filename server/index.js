@@ -1,6 +1,7 @@
 import express from "express";
 import { registerRoutes } from "./routes.js";
 import { setupVite, serveStatic, log } from "./vite.js";
+import { storage } from "./storage.js";
 
 const app = express();
 
@@ -42,6 +43,15 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // SEED admin user if doesn't exist
+  const demoUsername = 'admin';
+  const demoPassword = 'password123';
+  const user = await storage.getUserByUsername(demoUsername);
+  if (!user) {
+    await storage.createUser({ username: demoUsername, password: demoPassword });
+    log('Seeded demo admin user: admin / password123');
+  }
+  
   const server = await registerRoutes(app);
 
   app.use((err, _req, res, _next) => {
