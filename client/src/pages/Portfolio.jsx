@@ -32,7 +32,7 @@ const projects = [
     description: 'A modern e-commerce platform with seamless shopping experience, advanced product filtering, and secure payment integration.',
     image: ecommerceImg,
     technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'Tailwind CSS'],
-    liveUrl: 'https://shophub.example.com',
+    liveUrl: 'https://outfitters.com.pk/',
     featured: true,
   },
   {
@@ -42,17 +42,17 @@ const projects = [
     description: 'Secure mobile banking application with real-time transactions, budget tracking, and financial insights dashboard.',
     image: fintechImg,
     technologies: ['React Native', 'Express', 'PostgreSQL', 'AWS'],
-    liveUrl: 'https://financeflow.example.com',
+    liveUrl: 'https://financeflow.eu/',
     featured: true,
   },
   {
     id: 3,
-    title: 'PropertyHub Real Estate',
+    title: 'Magma Real Estate',
     category: 'Real Estate',
     description: 'Comprehensive real estate platform featuring advanced property search, virtual tours, and appointment scheduling.',
     image: realEstateImg,
     technologies: ['Next.js', 'GraphQL', 'PostgreSQL', 'Google Maps API'],
-    liveUrl: 'https://propertyhub.example.com',
+    liveUrl: 'https://thisismagma.com',
     featured: true,
   },
   {
@@ -62,7 +62,7 @@ const projects = [
     description: 'Healthcare platform connecting patients with doctors through secure video consultations and digital prescriptions.',
     image: healthcareImg,
     technologies: ['Vue.js', 'Django', 'WebRTC', 'PostgreSQL'],
-    liveUrl: 'https://mediconnect.example.com',
+    liveUrl: 'https://mediconnectai.com/',
     featured: false,
   },
   {
@@ -72,7 +72,7 @@ const projects = [
     description: 'Team collaboration tool with kanban boards, time tracking, and real-time updates for project management.',
     image: saasImg,
     technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
-    liveUrl: 'https://taskflow.example.com',
+    liveUrl: 'https://taskflowapp.com/',
     featured: false,
   },
   {
@@ -82,7 +82,7 @@ const projects = [
     description: 'Elegant restaurant website with online reservations, menu management, and customer review system.',
     image: restaurantImg,
     technologies: ['Next.js', 'Prisma', 'PostgreSQL', 'Stripe'],
-    liveUrl: 'https://gourmet.example.com',
+    liveUrl: 'https://gourmetfoods.pk/',
     featured: false,
   },
   {
@@ -92,7 +92,7 @@ const projects = [
     description: 'Fitness tracking mobile app with workout plans, nutrition tracking, and progress analytics.',
     image: fitnessImg,
     technologies: ['React Native', 'Firebase', 'TensorFlow', 'HealthKit'],
-    liveUrl: 'https://fittrack.example.com',
+    liveUrl: 'https://tryfittrack.com/',
     featured: false,
   },
   {
@@ -102,7 +102,7 @@ const projects = [
     description: 'Online learning platform with interactive courses, video streaming, and student progress tracking.',
     image: learningImg,
     technologies: ['Angular', 'Express', 'MongoDB', 'AWS S3'],
-    liveUrl: 'https://learnhub.example.com',
+    liveUrl: 'https://learninghub.pk/',
     featured: false,
   },
   {
@@ -112,7 +112,7 @@ const projects = [
     description: 'Cryptocurrency trading platform with real-time charts, secure wallet integration, and advanced trading features.',
     image: cryptoImg,
     technologies: ['React', 'Node.js', 'Redis', 'WebSocket'],
-    liveUrl: 'https://cryptotrade.example.com',
+    liveUrl: 'https://www.revolut.com/',
     featured: false,
   },
 ];
