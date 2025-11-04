@@ -90,7 +90,7 @@ export default function Home() {
     <PageTransition>
       <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden mt-5">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style="margin-top:70px;">
         <ThreeBackground variant="particles" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
