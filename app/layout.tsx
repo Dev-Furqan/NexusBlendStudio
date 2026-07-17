@@ -28,8 +28,11 @@ export const metadata: Metadata = {
   title: "Nexus Blend",
   description: "Nexus Blend digital marketing agency.",
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: {
+      url: "/logo-transparent.png",
+      type: "image/png",
+    },
+    apple: "/logo-transparent.png",
   },
 };
 
