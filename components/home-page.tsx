@@ -6,6 +6,7 @@ import {
   Headphones,
   Megaphone,
   PenTool,
+  Pin,
   Quote,
   Smartphone,
   Sparkles,
@@ -44,6 +45,11 @@ const services: { title: string; description: string; icon: Icon }[] = [
     title: "Digital Marketing",
     description: "Data-led campaigns that build awareness, attract audiences, and drive results.",
     icon: Megaphone,
+  },
+  {
+    title: "Pinterest Management",
+    description: "Monthly pin design and scheduling that turns Pinterest into a steady source of traffic and sales.",
+    icon: Pin,
   },
 ];
 

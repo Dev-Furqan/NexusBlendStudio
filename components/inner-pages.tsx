@@ -12,6 +12,7 @@ import {
   MapPin,
   Megaphone,
   PenTool,
+  Pin,
   Phone,
   Quote,
   Search,
@@ -100,6 +101,12 @@ const services = [
     description: "Campaigns, content, and optimization strategies that help the right people find you and take action.",
     icon: Megaphone,
     checklist: ["SEO strategy", "Paid campaigns", "Content planning", "Analytics setup", "Conversion tracking", "Growth reports"],
+  },
+  {
+    title: "Pinterest Management",
+    description: "Monthly pin design and scheduling for Etsy sellers, Shopify boutiques, and bloggers who want Pinterest to drive sales without the daily workload.",
+    icon: Pin,
+    checklist: ["Canva template packs", "Tailwind-ready pin layouts", "Monthly pin design", "Pin scheduling", "Keyword optimization", "Performance reporting"],
   },
   {
     title: "Brand Identity",
